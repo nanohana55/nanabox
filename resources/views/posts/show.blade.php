@@ -21,6 +21,9 @@
             <a href=''>{{ $post->type->name }}</a>
             <a href=''>{{ $post->method->name }}</a>
         </div>
+        <div class='edit'>
+            <a href='/posts/{{ $post->id }}/edit'>Edit</a>
+        </div>
         <div class='footer'>
             <a href='/'>戻る</a>
         </div>
