@@ -16,11 +16,11 @@
                 <input type="file" name='image'>    
             </div>
             <div class='body'>
-                <h2>Body</h2>
+                <h2>本文</h2>
                 <textarea name='post[body]' placeholder='本文'></textarea>
             </div>
             <div class='amount'>
-                <h2>Amount</h2>
+                <h2>グッズの量</h2>
                 <select name='post[amount_id]'>
                     @foreach($amounts as $amount)
                         <option value='{{ $amount->id }}'>{{ $amount->name }}</option>
@@ -28,7 +28,7 @@
                 </select>
             </div>
             <div class='type'>
-                <h2>Type</h2>
+                <h2>グッズの種類</h2>
                 <select name='post[type_id]'>
                     @foreach($types as $type)
                     <option value='{{ $type->id }}'>{{ $type->name }}</option>
@@ -36,7 +36,7 @@
                 </select>
             </div>
             <div class='method'>
-                <h2>Method</h2>
+                <h2>収納方法</h2>
                 <select name='post[method_id]'>
                     @foreach($methods as $method)
                     <option value='{{ $method->id }}'>{{ $method->name }}</option>

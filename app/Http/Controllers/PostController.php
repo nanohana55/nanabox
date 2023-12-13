@@ -36,12 +36,18 @@ class PostController extends Controller
         return view('/posts/show')->with(['post' => $post]);
     }
     
-    public function update(PostRequest $request, Post $post)
+    public function edit(Post $post)
     {
-        $input_post = $request['post'];
-        $input_post += ['user_id' => $request->user()->id];
-        $post->fill($input_post)->save();
-        return redirect('/posts/' . $post->id);
+        return view('posts/edit')->with(['post' => $post]);
+    }
+    
+    public function update(Request $request, Post $post)
+    {
+    $input_post = $request['post'];
+    $input_post += ['user_id' => $request->user()->id];
+    $post->fill($input_post)->save();
+
+    return redirect('/posts/' . $post->id);
     }
     
     public function delete(Post $post)
