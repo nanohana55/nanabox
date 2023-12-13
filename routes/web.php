@@ -31,8 +31,11 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/', [PostController::class, 'index']);
-Route::get('/posts/create',[PostController::class,'create']);
-Route::post('/posts',[PostController::class,'store']);
-Route::get('/posts/{post}',[PostController::class,'show']);
+Route::group(['middleware' => ['auth']], function(){
+Route::get('/', [PostController::class, 'index'])->name('index');
+Route::get('/posts/create',[PostController::class,'create'])->name('create');
+Route::post('/posts',[PostController::class,'store'])->name('store');
+Route::get('/posts/{post}',[PostController::class,'show'])->name('show');
+Route::delete('/posts/{post}',[PostController::class,'delete'])->name('delete');
+});
 
