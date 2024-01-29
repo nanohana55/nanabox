@@ -35,6 +35,12 @@ class Post extends Model
     {
         return $this->belongsTo(Method::class);
     }
+    
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+    
     protected $fillable = [
         'title',
         'body',

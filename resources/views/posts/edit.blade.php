@@ -2,10 +2,9 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <x-app-layout>
         <x-slot name='header'>
-            Edit
+            編集画面
         </x-slot>
     <body>
-        <h1>編集画面</h1>
         <div class='content'>
             <form action='/posts/{{ $post->id }}' method='POST'>
                 @csrf

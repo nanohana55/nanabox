@@ -2,28 +2,34 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <x-app-layout>
         <x-slot name='header'>
-            Index
+            投稿一覧
         </x-slot>
+    <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+    
     <body>
-        <h1>投稿一覧</h1>
+        <a href='/user'>my post</a>
+        <br>
         <a href='/posts/create'>create</a>
             @foreach ($posts as $post)
                 <div class='post'>
-                    <h2 class='title'>
+                    <small>{{ $post->user->name }}</small>
+                    <div class='post_image'>
+                        <image src='{{ $post->image_url }}' alt='画像が読み込めません。'/>
+                    </div>
+                    <h2 class='post_title'>
                         <a href='/posts/{{ $post->id }}'>{{ $post->title }}</a>
                     </h2>
-                    <small>{{ $post->user->name }}</small>
-                    <image src='{{ $post->image_url }}' alt='画像が読み込めません。'/>
-                    <p class='body'>{{ $post->body }}</p>
                     <form action='/posts/{{ $post->id }}' id='form_{{ $post->id }}' method='post'>
                         @csrf
                         @method('DELETE')
                         <button type='button' onclick='deletePost({{ $post->id }})'>delete</button>
                     </form>
                 </div>
-                <a href=''>{{ $post->amount->name }}</a>
-                <a href=''>{{ $post->type->name }}</a>
-                <a href=''>{{ $post->method->name }}</a>
+                <div class='post_category'>
+                    <a href=''>{{ $post->amount->name }}</a>
+                    <a href=''>{{ $post->type->name }}</a>
+                    <a href=''>{{ $post->method->name }}</a>
+                </div>
             @endforeach
         </div>
         <div class='paginate'>

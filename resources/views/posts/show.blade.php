@@ -2,15 +2,14 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <x-app-layout>
         <x-slot name='header'>
-            Show
-        </x-slot>
-    <body>
-        <h1 class='title'>
             {{ $post->title }}
-        </h1>
+        </x-slot>
+    <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+    
+    <body>
         <small>{{ $post->user->name }}</small>
         <div class='content'>
-            <div class='content_photo'>
+            <div class='content_image'>
                 <img src='{{ $post->image_url }}' alt='画像が読み込めません。'/>
             </div>
             <div class='content_post'>

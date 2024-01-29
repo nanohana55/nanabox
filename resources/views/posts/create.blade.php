@@ -2,10 +2,9 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <x-app-layout>
         <x-slot name='header'>
-            Create
+            新規投稿
         </x-slot>
     <body>
-        <h1>新規投稿</h1>
         <form action="/posts" method="POST" enctype="multipart/form-data">
             @csrf
             <div class='title'>

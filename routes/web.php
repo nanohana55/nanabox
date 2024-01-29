@@ -35,3 +35,5 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
 
 Route::get('/user',[UserController::class,'index'])->name('user.index')->middleware('auth');
 
+
+
